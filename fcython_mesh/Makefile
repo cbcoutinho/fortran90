@@ -18,10 +18,10 @@ F90FLAGS += -g -fcheck=all
 
 #GCC
 CC = gcc
-CFLAGS = -Wall -fPIC -I$(SPKG_LOCAL)/include/python2.6 -I$(SPKG_LOCAL)/lib/python2.6/site-packages/numpy/core/include
+CFLAGS = -Wall -fPIC -I/usr/include/python3.5m/ -I/home/chris/anaconda3/lib/python3.5/site-packages/numpy/core/include/
 
 fcython.so: fmesh_wrapper.o fcython.o fmesh.o utils.o types.o
-	$(F90) -shared -o fcython.so $^ -lpython2.6
+	$(F90) -shared -o fcython.so $^ -lpython3.5m
 
 fcython.c: fcython.pyx
 	cython fcython.pyx
